@@ -697,3 +697,235 @@ init_graph["Klaipeda"]["Panevėžys"] = 201
 init_graph["Klaipeda"]["Alytus"] = 235
 
 init_graph["Alytus"]["Panevėžys"] = 153
+
+'---------LATVIA--------'
+
+init_graph["Riga"]["Liepāja"] = 195
+init_graph["Riga"]["Daugavpils"] = 192
+init_graph["Riga"]["Warszawa"] = 562
+init_graph["Riga"]["Kraków"] = 810
+init_graph["Riga"]["Gdańsk"] = 446
+init_graph["Riga"]["Zürich"] = 1480
+init_graph["Riga"]["Geneva"] = 1706
+init_graph["Riga"]["Milan"] = 1592
+init_graph["Riga"]["Venice"] = 1505
+init_graph["Riga"]["Rome"] = 1876
+init_graph["Riga"]["Napoli"] = 1924
+init_graph["Riga"]["Catania"] = 2261
+init_graph["Riga"]["București"] = 1396
+init_graph["Riga"]["Brașov"] = 1260
+init_graph["Riga"]["Rijeka"] = 1455
+init_graph["Riga"]["Split"] = 1590
+init_graph["Riga"]["Hannover"] = 1041
+init_graph["Riga"]["Hamburg"] = 969
+init_graph["Riga"]["Berlin"] = 841
+init_graph["Riga"]["Stuttgart"] = 1345
+init_graph["Riga"]["München"] = 1282
+init_graph["Riga"]["Frankfurt am Main"] = 1271
+init_graph["Riga"]["Bonn"] = 1310
+init_graph["Riga"]["Köln"] = 1290
+init_graph["Riga"]["Düsseldorf"] = 1295
+init_graph["Riga"]["Bielefeld"] = 1146
+init_graph["Riga"]["Paris"] = 1703
+init_graph["Riga"]["Nice"] = 1888
+init_graph["Riga"]["Vilnius"] = 265
+init_graph["Riga"]["Klaipeda"] = 229
+init_graph["Riga"]["Bilbao"] = 2421
+init_graph["Riga"]["Barcelona"] = 2335
+init_graph["Riga"]["Valencia"] = 2625
+init_graph["Riga"]["Madrid"] = 2705
+init_graph["Riga"]["Málaga"] = 3085
+init_graph["Riga"]["Lisbon"] = 3150
+
+init_graph["Liepāja"]["Daugavpils"] = 349
+
+'----------ESTONIA--------'
+
+init_graph["Tallin"]["Warszawa"] = 841
+init_graph["Tallin"]["Zürich"] = 1712
+init_graph["Tallin"]["Milan"] = 1831
+init_graph["Tallin"]["Venice"] = 1764
+init_graph["Tallin"]["Rome"] = 2126
+init_graph["Tallin"]["Catania"] = 2540
+init_graph["Tallin"]["Split"] = 1860
+init_graph["Tallin"]["Berlin"] = 1045
+init_graph["Tallin"]["Nürnberg"] = 1414
+init_graph["Tallin"]["München"] = 1520
+init_graph["Tallin"]["Frankfurt am Main"] = 1470
+init_graph["Tallin"]["Paris"] = 1860
+init_graph["Tallin"]["Nice"] = 2119
+init_graph["Tallin"]["Vilnius"] = 532
+init_graph["Tallin"]["Riga"] = 280
+init_graph["Tallin"]["Barcelona"] = 2550
+init_graph["Tallin"]["Málaga"] = 3280
+init_graph["Tallin"]["Athens"] = 2390
+init_graph["Tallin"]["Viena"] = 1362
+
+init_graph["Tartu"]["Warszawa"] = 773
+init_graph["Tartu"]["Zürich"] = 1718
+init_graph["Tartu"]["Milan"] = 1864
+init_graph["Tartu"]["Berlin"] = 1062
+init_graph["Tartu"]["Frankfurt am Main"] = 1490
+init_graph["Tartu"]["Paris"] = 1908
+init_graph["Tartu"]["Nice"] = 2112
+init_graph["Tartu"]["Vilnius"] = 420
+init_graph["Tartu"]["Klaipeda"] = 450
+init_graph["Tartu"]["Barcelona"] = 2550
+init_graph["Tartu"]["Athens"] = 2279
+init_graph["Tartu"]["Viena"] = 1320
+
+'--------CZHECH-------'
+
+init_graph["Praga"]["Brno"] = 184
+init_graph["Praga"]["Ostrave"] = 277
+init_graph["Praga"]["Warszawa"] = 520
+init_graph["Praga"]["Kraków"] = 394
+init_graph["Praga"]["Gdańsk"] = 551
+init_graph["Praga"]["Zürich"] = 527
+init_graph["Praga"]["Geneva"] = 750
+init_graph["Praga"]["Milan"] = 646
+init_graph["Praga"]["Turin"] = 750
+init_graph["Praga"]["Venice"] = 536
+init_graph["Praga"]["Bologna"] = 663
+init_graph["Praga"]["Rome"] = 923
+init_graph["Praga"]["Napoli"] = 1028
+init_graph["Praga"]["Bari"] = 1014
+init_graph["Praga"]["Catania"] = 1407
+init_graph["Praga"]["București"] = 1080
+init_graph["Praga"]["Sofia"] = 1072
+init_graph["Praga"]["Varna"] = 1272
+init_graph["Praga"]["Zadar"] = 670
+init_graph["Praga"]["Split"] = 742
+init_graph["Praga"]["München"] = 265
+init_graph["Praga"]["Frankfurt am Main"] = 410
+init_graph["Praga"]["Bonn"] = 524
+init_graph["Praga"]["Köln"] = 536
+init_graph["Praga"]["Düsseldorf"] = 553
+init_graph["Praga"]["Nantes"] = 1213
+init_graph["Praga"]["Paris"] = 875
+init_graph["Praga"]["Lyon"] = 860
+init_graph["Praga"]["Marseille"] = 1021
+init_graph["Praga"]["Riga"] = 993
+init_graph["Praga"]["Bilbao"] = 1520
+init_graph["Praga"]["Barcelona"] = 1353
+init_graph["Praga"]["Valencia"] = 1651
+init_graph["Praga"]["Madrid"] = 1772
+init_graph["Praga"]["Málaga"] = 2116
+init_graph["Praga"]["Seville"] = 2150
+init_graph["Praga"]["Lisbon"] = 2231
+
+init_graph["Brno"]["Ostrave"] = 140
+init_graph["Brno"]["Milan"] = 695
+init_graph["Brno"]["Varna"] = 1086
+
+init_graph["Ostrave"]["Warszawa"] = 319
+init_graph["Ostrave"]["Varna"] = 1033
+
+'-------SLOVAKIA-------'
+
+init_graph["Bratislava"]["Košice"] = 312
+init_graph["Bratislava"]["Milan"] = 680
+init_graph["Bratislava"]["Rome"] = 790
+init_graph["Bratislava"]["Sofia"] = 777
+init_graph["Bratislava"]["Zagreb"] = 284
+init_graph["Bratislava"]["Kaunas"] = 879
+init_graph["Bratislava"]["Barcelona"] = 1413
+init_graph["Bratislava"]["Athens"] = 1260
+init_graph["Bratislava"]["Thessaloniki"] = 965
+
+init_graph["Košice"]["Warszawa"] = 391
+init_graph["Košice"]["Praga"] = 519
+init_graph["Košice"]["Düsseldorf"] = 1072
+init_graph["Košice"]["Viena"] = 363
+
+'--------AUSTRIA-------'
+
+init_graph["Graz"]["Viena"] = 151
+init_graph["Graz"]["Zürich"] = 522
+init_graph["Graz"]["Hamburg"] = 825
+init_graph["Graz"]["Berlin"] = 632
+init_graph["Graz"]["Stuttgart"] = 507
+init_graph["Graz"]["München"] = 313
+init_graph["Graz"]["Frankfurt am Main"] = 609
+init_graph["Graz"]["Düsseldorf"] = 786
+init_graph["Graz"]["Nantes"] = 1343
+
+init_graph["Viena"]["Warszawa"] = 563
+init_graph["Viena"]["Kraków"] = 332
+init_graph["Viena"]["Zürich"] = 602
+init_graph["Viena"]["Geneva"] = 810
+init_graph["Viena"]["Milan"] = 625
+init_graph["Viena"]["Venice"] = 433
+init_graph["Viena"]["Bologna"] = 565
+init_graph["Viena"]["Florence"] = 632
+init_graph["Viena"]["Rome"] = 766
+init_graph["Viena"]["Napoli"] = 836
+init_graph["Viena"]["Bari"] = 788
+init_graph["Viena"]["Palermo"] = 1145
+init_graph["Viena"]["Catania"] = 1196
+init_graph["Viena"]["București"] = 857
+init_graph["Viena"]["Cluj"] = 571
+init_graph["Viena"]["Sofia"] = 823
+init_graph["Viena"]["Varna"] = 1045
+init_graph["Viena"]["Praga"] = 278
+init_graph["Viena"]["Zagreb"] = 268
+init_graph["Viena"]["Pula"] = 413
+init_graph["Viena"]["Zadar"] = 463
+init_graph["Viena"]["Split"] = 519
+init_graph["Viena"]["Hannover"] = 661
+init_graph["Viena"]["Hamburg"] = 768
+init_graph["Viena"]["Bremen"] = 758
+init_graph["Viena"]["Berlin"] = 521
+init_graph["Viena"]["Leipzig"] = 469
+init_graph["Viena"]["Nürnberg"] = 412
+init_graph["Viena"]["Stuttgart"] = 533
+init_graph["Viena"]["München"] = 355
+init_graph["Viena"]["Frankfurt am Main"] = 598
+init_graph["Viena"]["Bonn"] = 743
+init_graph["Viena"]["Köln"] = 746
+init_graph["Viena"]["Düsseldorf"] = 767
+init_graph["Viena"]["Dortmund"] = 727
+init_graph["Viena"]["Nantes"] = 1343
+init_graph["Viena"]["Paris"] = 1033
+init_graph["Viena"]["Lyon"] = 915
+init_graph["Viena"]["Marseille"] = 1012
+init_graph["Viena"]["Nice"] = 876
+init_graph["Viena"]["Vilnius"] = 943
+init_graph["Viena"]["Klaipeda"] = 895
+init_graph["Viena"]["Riga"] = 1103
+init_graph["Viena"]["Liepāja"] = 974
+init_graph["Viena"]["Daugavpils"] = 1099
+init_graph["Viena"]["Bilbao"] = 1593
+init_graph["Viena"]["Zaragoza"] = 1545
+init_graph["Viena"]["Barcelona"] = 1351
+init_graph["Viena"]["Valencia"] = 1652
+init_graph["Viena"]["Madrid"] = 1809
+init_graph["Viena"]["Málaga"] = 2120
+init_graph["Viena"]["Seville"] = 2174
+init_graph["Viena"]["Lisbon"] = 2308
+init_graph["Viena"]["Athens"] = 1283
+init_graph["Viena"]["Thessaloniki"] = 1002
+
+'-------CROATIA-------'
+
+init_graph["Zagreb"]["Osijek"] = 213
+init_graph["Zagreb"]["Rijeka"] = 132
+init_graph["Zagreb"]["Pula"] = 191
+init_graph["Zagreb"]["Zadar"] = 197
+init_graph["Zagreb"]["Split"] = 259
+
+init_graph["Osijek"]["Rijeka"] = 333
+init_graph["Osijek"]["Pula"] = 388
+init_graph["Osijek"]["Zadar"] = 316
+init_graph["Osijek"]["Split"] = 289
+
+init_graph["Rijeka"]["Pula"] = 68
+init_graph["Rijeka"]["Zadar"] = 150
+init_graph["Rijeka"]["Split"] = 257
+
+init_graph["Pula"]["Zadar"] = 138
+init_graph["Pula"]["Split"] = 256
+
+init_graph["Zadar"]["Split"] = 118
+
+init_graph["Split"]["Vilnius"] = 1395
