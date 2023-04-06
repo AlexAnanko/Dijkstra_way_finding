@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "dijkstra-way-finding"
+version = "0.1.0"
+description = ""
+authors = ["alexananko <anankoa@mail.ru>"]
+readme = "README.md"
+packages = [{include = "dijkstra_way_finding"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.2"
+psycopg2-binary = "^2.9.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
