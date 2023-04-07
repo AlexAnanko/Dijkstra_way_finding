@@ -6,11 +6,11 @@ class Graph(object):
         self.graph = self.construct_graph(nodes, init_graph)
 
     def construct_graph(self, nodes, init_graph):
-        #         Этот метод обеспечивает симметричность графика.
-        #         Другими словами, если существует путь от узла A к B со значением V,
-        #         должен быть путь от узла B к узлу A со значением V.
 
         """
+        This method describes the symmetry of graphics.
+        In other words, if there is a path from node A to B with value V,
+        there must be a path from node B to node A with value V.
 
         :param nodes: list of nodes
         :param init_graph: graphs like a dict with keys nodes
@@ -31,17 +31,24 @@ class Graph(object):
         return graph
 
     def get_nodes(self):
-        # Возвращает узлы графа
+
         """
+        The function returns the nodes of the graph
+
         :return: nodes
+
         """
         return self.nodes
 
     def get_outgoing_edges(self, node):
-        # Возвращает соседей узла
+
         """
+
+        The function returns the node's neighbors
+
         :param node: get node
         :return: nod's neighbours
+
         """
 
         connections = []
@@ -51,48 +58,52 @@ class Graph(object):
         return connections
 
     def value(self, node1, node2):
-        # Возвращает значение ребра между двумя узлами.
+
         """
+        The function returns the value of the edge between two nodes.
 
         :param node1: get node 1
         :param node2: get node 2
         :return: value of distance beetween two nodes
+
         """
         return self.graph[node1][node2]
 
 
 def dijkstra_algorithm(graph, start_node):
-    # Эта функция берет за основу карту из графов и по ключам из списка проходит все графы из списка
-    # и находит кратчайший путь к точке назначения. При это в ходе алгоритма уже посещенные графы
-    # помечаються visited и при дальнейшем проходе уже не учитываются. Таким образом функция возвращает
-    # Список из пройденных графов и список из графов, формируюхих кротчайший путь.
 
     """
+
+    This function takes a map of graphs as a basis and goes through all the graphs from the list
+    by the keys and finds the shortest path to the destination.
+    At the same time, during the algorithm, the already visited graphs
+    are marked visited and are no longer taken into account in the further passage.
+    So the function returns a list of graphs passed and a list of graphs that form the shortest path.
 
     :param graph: get graph with node's values
     :param start_node: get start node
     :return: node's neighbours like a previous nodes and list of shortest way of nodes
 
+
     """
     unvisited_nodes = list(graph.get_nodes())
 
-    # Мы будем использовать этот словарь, чтобы сэкономить на посещении
-    # каждого узла и обновлять его по мере продвижения по графику
+    # We will use this dictionary to save on visiting each node and update it as we move along the schedule
     shortest_path = {}
 
-    # Мы будем использовать этот dict, чтобы сохранить кратчайший известный путь к найденному узлу
+    # We will use this dict to store the shortest known path to the found node.
     previous_nodes = {}
 
-    # Мы будем использовать max_value для инициализации значения "бесконечности" непосещенных узлов
+    # We will use max_value to initialize the "infinity" value of unvisited nodes
     max_value = sys.maxsize
     for node in unvisited_nodes:
         shortest_path[node] = max_value
-    # Однако мы инициализируем значение начального узла 0
+    # However, we initialize the start node value to 0
     shortest_path[start_node] = 0
 
-    # Алгоритм выполняется до тех пор, пока мы не посетим все узлы
+    # The algorithm is executed until we visit all nodes
     while unvisited_nodes:
-        # Приведенный ниже блок кода находит узел с наименьшей оценкой
+        # The block of code below finds the node with the lowest score
         current_min_node = None
         for node in unvisited_nodes:  # Iterate over the nodes
             if current_min_node == None:
@@ -100,7 +111,7 @@ def dijkstra_algorithm(graph, start_node):
             elif shortest_path[node] < shortest_path[current_min_node]:
                 current_min_node = node
 
-        # Приведенный ниже блок кода извлекает соседей текущего узла и обновляет их расстояния
+        # The code block below retrieves the neighbors of the current node and updates their distances
         neighbors = graph.get_outgoing_edges(current_min_node)
         for neighbor in neighbors:
             tentative_value = shortest_path[current_min_node] + graph.value(current_min_node, neighbor)
@@ -109,7 +120,7 @@ def dijkstra_algorithm(graph, start_node):
                 # We also update the best path to the current node
                 previous_nodes[neighbor] = current_min_node
 
-        # После посещения его соседей мы отмечаем узел как "посещенный"
+        # After visiting its neighbors, we mark the node as "visited"
         unvisited_nodes.remove(current_min_node)
 
     return previous_nodes, shortest_path
