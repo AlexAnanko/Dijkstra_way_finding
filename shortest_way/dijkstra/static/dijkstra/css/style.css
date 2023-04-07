@@ -1,0 +1,49 @@
+.page-header {
+    background-color: #A11F11;
+    margin-top: 0;
+    padding: 20px 20px 20px 40px;
+}
+
+.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 36pt;
+    text-decoration: none;
+}
+
+.content {
+    margin-left: 40px;
+}
+
+h1 a {
+    color: #A11F11
+}
+
+ul.mainmenu {
+   list-style: none;
+   margin: 0;
+   padding: 0;
+   height: 70px;
+   color: #FDA83D;
+   font-size: 20px;
+   overflow: hidden;
+}
+ul.mainmenu li {
+   float: left;
+   margin: 20px 40px 0 30px;
+}
+ul.mainmenu li.logo {margin: 0;}
+ul.mainmenu li.last {float: right;}
+
+ul.mainmenu li a {
+   color: #FDA83D;
+   text-decoration: none;
+}
+ul.mainmenu li a:hover {
+   color: #CECAF6;
+}
+
+table {
+width: 100%;
+}
+
+
