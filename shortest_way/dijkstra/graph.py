@@ -6,11 +6,17 @@ class Graph(object):
         self.graph = self.construct_graph(nodes, init_graph)
 
     def construct_graph(self, nodes, init_graph):
-        '''
-        Этот метод обеспечивает симметричность графика.
-        Другими словами, если существует путь от узла A к B со значением V,
-        должен быть путь от узла B к узлу A со значением V.
-        '''
+        #         Этот метод обеспечивает симметричность графика.
+        #         Другими словами, если существует путь от узла A к B со значением V,
+        #         должен быть путь от узла B к узлу A со значением V.
+
+        """
+
+        :param nodes: list of nodes
+        :param init_graph: graphs like a dict with keys nodes
+        :return: graph with nodes
+
+        """
         graph = {}
         for node in nodes:
             graph[node] = {}
@@ -25,11 +31,19 @@ class Graph(object):
         return graph
 
     def get_nodes(self):
-        "Возвращает узлы графа"
+        # Возвращает узлы графа
+        """
+        :return: nodes
+        """
         return self.nodes
 
     def get_outgoing_edges(self, node):
-        "Возвращает соседей узла"
+        # Возвращает соседей узла
+        """
+        :param node: get node
+        :return: nod's neighbours
+        """
+
         connections = []
         for out_node in self.nodes:
             if self.graph[node].get(out_node, False) != False:
@@ -37,14 +51,33 @@ class Graph(object):
         return connections
 
     def value(self, node1, node2):
-        "Возвращает значение ребра между двумя узлами."
+        # Возвращает значение ребра между двумя узлами.
+        """
+
+        :param node1: get node 1
+        :param node2: get node 2
+        :return: value of distance beetween two nodes
+        """
         return self.graph[node1][node2]
 
 
 def dijkstra_algorithm(graph, start_node):
+    # Эта функция берет за основу карту из графов и по ключам из списка проходит все графы из списка
+    # и находит кратчайший путь к точке назначения. При это в ходе алгоритма уже посещенные графы
+    # помечаються visited и при дальнейшем проходе уже не учитываются. Таким образом функция возвращает
+    # Список из пройденных графов и список из графов, формируюхих кротчайший путь.
+
+    """
+
+    :param graph: get graph with node's values
+    :param start_node: get start node
+    :return: node's neighbours like a previous nodes and list of shortest way of nodes
+
+    """
     unvisited_nodes = list(graph.get_nodes())
 
-    # Мы будем использовать этот словарь, чтобы сэкономить на посещении каждого узла и обновлять его по мере продвижения по графику
+    # Мы будем использовать этот словарь, чтобы сэкономить на посещении
+    # каждого узла и обновлять его по мере продвижения по графику
     shortest_path = {}
 
     # Мы будем использовать этот dict, чтобы сохранить кратчайший известный путь к найденному узлу
@@ -80,6 +113,7 @@ def dijkstra_algorithm(graph, start_node):
         unvisited_nodes.remove(current_min_node)
 
     return previous_nodes, shortest_path
+
 
 nodes = ["Białystok", "Warszawa", "Łódź", "Lublin", "Kraków", "Katowice", "Wrocław", "Szczecin", "Bydgoszcz", "Gdańsk",
          "Częstochowa", "Poznań", "Hannover", "Hamburg", "Bremen", "Berlin", "Leipzig", "Dresden", "Nürnberg",
@@ -1581,3 +1615,160 @@ init_graph["Budapest"]["Athens"] = 1127
 init_graph["Budapest"]["Thessaloniki"] = 825
 init_graph["Budapest"]["Viena"] = 214
 init_graph["Budapest"]["Belgrade"] = 317
+
+
+'-------MOlDOVA-------'
+
+init_graph["Kishinev"]["Warszawa"] = 818
+init_graph["Kishinev"]["Zürich"] = 1536
+init_graph["Kishinev"]["Milan"] = 1518
+init_graph["Kishinev"]["Venice"] = 1284
+init_graph["Kishinev"]["Bologna"] = 1391
+init_graph["Kishinev"]["Rome"] = 1440
+init_graph["Kishinev"]["București"] = 358
+init_graph["Kishinev"]["Praga"] = 1113
+init_graph["Kishinev"]["Berlin"] = 1264
+init_graph["Kishinev"]["München"] = 1291
+init_graph["Kishinev"]["Frankfurt am Main"] = 1628
+init_graph["Kishinev"]["Düsseldorf"] = 1677
+init_graph["Kishinev"]["Paris"] = 1976
+init_graph["Kishinev"]["Nice"] = 1730
+init_graph["Kishinev"]["Barcelona"] = 2210
+init_graph["Kishinev"]["Valencia"] = 2495
+init_graph["Kishinev"]["Madrid"] = 2697
+init_graph["Kishinev"]["Lisbon"] = 3200
+init_graph["Kishinev"]["Viena"] = 940
+
+'-------SLOVENIA-------'
+
+init_graph["Ljubljana"]["Bratislava"] = 300
+init_graph["Ljubljana"]["Warszawa"] = 812
+init_graph["Ljubljana"]["Zürich"] = 470
+init_graph["Ljubljana"]["Plovdiv"] = 950
+init_graph["Ljubljana"]["München"] = 303
+init_graph["Ljubljana"]["Frankfurt am Main"] = 627
+init_graph["Ljubljana"]["Paris"] = 953
+init_graph["Ljubljana"]["Athens"] = 1208
+init_graph["Ljubljana"]["Belgrade"] = 485
+
+'---------NORTH MACEDONIA----------'
+
+init_graph["Skopje"]["Bratislava"] = 773
+init_graph["Skopje"]["Warszawa"] = 1137
+init_graph["Skopje"]["Zürich"] = 1194
+init_graph["Skopje"]["Geneva"] = 1321
+init_graph["Skopje"]["Milan"] = 1112
+init_graph["Skopje"]["Venice"] = 840
+init_graph["Skopje"]["Bologna"] = 879
+init_graph["Skopje"]["Rome"] = 748
+init_graph["Skopje"]["Zagreb"] = 612
+init_graph["Skopje"]["Hamburg"] = 1551
+init_graph["Skopje"]["Bremen"] = 1561
+init_graph["Skopje"]["Berlin"] = 1320
+init_graph["Skopje"]["Nürnberg"] = 1166
+init_graph["Skopje"]["Frankfurt am Main"] = 1347
+init_graph["Skopje"]["Bonn"] = 1486
+init_graph["Skopje"]["Köln"] = 1485
+init_graph["Skopje"]["Dortmund"] = 1502
+init_graph["Skopje"]["Paris"] = 1668
+init_graph["Skopje"]["Athens"] = 488
+init_graph["Skopje"]["Viena"] = 798
+init_graph["Skopje"]["Belgrade"] = 324
+
+'---------ALBANIA----------'
+
+init_graph["Tirana"]["Warszawa"] = 1200
+init_graph["Tirana"]["Katowice"] = 985
+init_graph["Tirana"]["Wrocław"] = 1098
+init_graph["Tirana"]["Gdańsk"] = 1446
+init_graph["Tirana"]["Poznań"] = 1242
+init_graph["Tirana"]["Minsk"] = 1506
+init_graph["Tirana"]["Zürich"] = 1104
+init_graph["Tirana"]["Geneva"] = 1209
+init_graph["Tirana"]["Milan"] = 974
+init_graph["Tirana"]["Turin"] = 1054
+init_graph["Tirana"]["Genoa"] = 947
+init_graph["Tirana"]["Venice"] = 744
+init_graph["Tirana"]["Bologna"] = 761
+init_graph["Tirana"]["Florence"] = 739
+init_graph["Tirana"]["Rome"] = 614
+init_graph["Tirana"]["Napoli"] = 462
+init_graph["Tirana"]["Bari"] = 240
+init_graph["Tirana"]["Catania"] = 593
+init_graph["Tirana"]["Praga"] = 1050
+init_graph["Tirana"]["Hamburg"] = 1531
+init_graph["Tirana"]["Berlin"] = 1323
+init_graph["Tirana"]["Nürnberg"] = 1117
+init_graph["Tirana"]["München"] = 984
+init_graph["Tirana"]["Frankfurt am Main"] = 1289
+init_graph["Tirana"]["Bonn"] = 1440
+init_graph["Tirana"]["Köln"] = 1454
+init_graph["Tirana"]["Düsseldorf"] = 1471
+init_graph["Tirana"]["Dortmund"] = 1452
+init_graph["Tirana"]["Paris"] = 1600
+init_graph["Tirana"]["Lyon"] = 1289
+init_graph["Tirana"]["Nice"] = 1053
+init_graph["Tirana"]["Barcelona"] = 1461
+init_graph["Tirana"]["Madrid"] = 1965
+init_graph["Tirana"]["Athens"] = 529
+init_graph["Tirana"]["Viena"] = 813
+init_graph["Tirana"]["Belgrade"] = 381
+
+'----------BOSINA AND HERZEGOVINA----------'
+
+init_graph["Sarajevo"]["Warszawa"] = 948
+init_graph["Sarajevo"]["Zürich"] = 857
+init_graph["Sarajevo"]["Zagreb"] = 290
+init_graph["Sarajevo"]["Frankfurt am Main"] = 1012
+init_graph["Sarajevo"]["Stuttgart"] = 892
+init_graph["Sarajevo"]["Bonn"] = 1150
+init_graph["Sarajevo"]["Köln"] = 1162
+init_graph["Sarajevo"]["Viena"] = 510
+init_graph["Sarajevo"]["Belgrade"] = 193
+
+'----------SERBIA---------'
+
+init_graph["Belgrade"]["Warszawa"] = 826
+init_graph["Belgrade"]["Kraków"] = 588
+init_graph["Belgrade"]["Minsk"] = 1132
+init_graph["Belgrade"]["Zürich"] = 961
+init_graph["Belgrade"]["Bern"] = 1034
+init_graph["Belgrade"]["Geneva"] = 1125
+init_graph["Belgrade"]["Milan"] = 887
+init_graph["Belgrade"]["Venice"] = 641
+init_graph["Belgrade"]["Bologna"] = 722
+init_graph["Belgrade"]["Rome"] = 720
+init_graph["Belgrade"]["Napoli"] = 671
+init_graph["Belgrade"]["Bari"] = 502
+init_graph["Belgrade"]["Palermo"] = 957
+init_graph["Belgrade"]["Catania"] = 932
+init_graph["Belgrade"]["București"] = 450
+init_graph["Belgrade"]["Sofia"] = 329
+init_graph["Belgrade"]["Praga"] = 742
+init_graph["Belgrade"]["Zagreb"] = 368
+init_graph["Belgrade"]["Rijeka"] = 465
+init_graph["Belgrade"]["Zadar"] = 413
+init_graph["Belgrade"]["Split"] = 360
+init_graph["Belgrade"]["Hannover"] = 1151
+init_graph["Belgrade"]["Hamburg"] = 1233
+init_graph["Belgrade"]["Berlin"] = 1001
+init_graph["Belgrade"]["Nürnberg"] = 877
+init_graph["Belgrade"]["Stuttgart"] = 965
+init_graph["Belgrade"]["München"] = 774
+init_graph["Belgrade"]["Frankfurt am Main"] = 1066
+init_graph["Belgrade"]["Bonn"] = 1194
+init_graph["Belgrade"]["Köln"] = 1214
+init_graph["Belgrade"]["Düsseldorf"] = 1241
+init_graph["Belgrade"]["Dortmund"] = 1208
+init_graph["Belgrade"]["Paris"] = 1446
+init_graph["Belgrade"]["Lyon"] = 1225
+init_graph["Belgrade"]["Marseille"] = 1216
+init_graph["Belgrade"]["Nice"] = 1060
+init_graph["Belgrade"]["Barcelona"] = 1530
+init_graph["Belgrade"]["Valencia"] = 1817
+init_graph["Belgrade"]["Madrid"] = 2029
+init_graph["Belgrade"]["Málaga"] = 2269
+init_graph["Belgrade"]["Lisbon"] = 2530
+init_graph["Belgrade"]["Athens"] = 820
+init_graph["Belgrade"]["Thessaloniki"] = 508
+init_graph["Belgrade"]["Viena"] = 492
