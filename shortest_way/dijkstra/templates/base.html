@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <title>TicketSales.org</title>
+        <link rel="stylesheet" href="{% static 'dijkstra/css/style.css' %}">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    </head>
+    <body>
+    <div class="page-header">
+        <h1><a href="/">TicketSales.org</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Мы помогаем найти кротчайший путь из точки А в точку B с минимальными усилиями.</h1>
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </div>
+</body>

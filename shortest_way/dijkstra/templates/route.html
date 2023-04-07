@@ -1,0 +1,387 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    table {
+    width: 94%;
+    background: url("{% static 'dijkstra/images/Ticket.jpg' %}");
+    color: black;
+    cellpadding: 4
+   }
+   td {
+       text-indent: 50px;
+       }
+</style>
+<b></b>
+    {% if way|length == 2 %}
+    <h3>Ваш маршрут состоит из прямого рейса из <b>{{ way.0 }}</b> в <b>{{ way.1 }}</b></h3>
+    {% elif way|length == 3 %}
+    <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.2 }}</b> c пересадкой в <b>{{ way.1 }}</b></h3>
+    {% elif way|length == 4 %}
+    <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.3 }}</b> c первой пересадкой в <b>{{ way.1 }}</b>
+        и с послежующей пересадкой в <b>{{ way.2 }}</b></h3>
+    {% elif way|length == 5 %}
+    <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.4 }}</b> c первой пересадкой в <b>{{ way.1 }}</b>
+        и с послежующей пересадкой в <b>{{ way.2 }}</b>, затем Вас ждет еще одна пересадка в  <b>{{ way.3 }}</b></h3>
+    {% endif %}
+    <br>
+    {% if way|length == 2 %}
+        <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2 style="color: #6495ED; font-family: helvetica">{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.0 }}</h4>
+
+                </td>
+                <td style="vertical-align:top" align="center"><h2 style="color: #6495ED; font-family: helvetica">{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="left">
+                    <p style="font-size:22px">{{ way.0 }}</p>
+                    <p style="font-size:22px">{{ way.1 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.1 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+        </table>
+    {% elif way|length == 3 %}
+        <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.0 }}</h4>
+
+                </td>
+                <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="left">
+                    <p style="font-size:22px">{{ way.0 }}</p>
+                    <p style="font-size:22px">{{ way.1 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.1 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.1 }}</h4>
+
+                </td>
+                <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="left">
+                    <p style="font-size:22px">{{ way.1 }}</p>
+                    <p style="font-size:22px">{{ way.2 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.2 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+        </table>
+    {% elif way|length == 4 %}]
+        <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.0 }}</h4>
+
+                </td>
+                <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="left">
+                    <p style="font-size:22px">{{ way.0 }}</p>
+                    <p style="font-size:22px">{{ way.1 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.1 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.1 }}</h4>
+
+                </td>
+                <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="center">
+                    <p style="font-size:22px">{{ way.1 }}</p>
+                    <p style="font-size:22px">{{ way.2 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.2 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+        </table>
+       <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.2 }}</h4>
+                </td>
+                <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom" align="center">
+                    <p style="font-size:22px">{{ way.2 }}</p>
+                    <p style="font-size:22px">{{ way.3 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.3 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+        </table>
+    {% elif way|length == 5 %}
+                <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.0 }}</h4>
+
+                </td>
+                <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom" align="center">
+                    <p style="font-size:22px">{{ way.0 }}</p>
+                    <p style="font-size:22px">{{ way.1 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.1 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.1 }}</h4>
+
+                </td>
+                <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom" align="center">
+                    <p style="font-size:22px">{{ way.1 }}</p>
+                    <p style="font-size:22px">{{ way.2 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.2 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+        </table>
+       <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.2 }}</h4>
+
+                </td>
+                <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom" align="center">
+                    <p style="font-size:22px">{{ way.2 }}</p>
+                    <p style="font-size:22px">{{ way.3 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.3 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+       </table>
+       <table>
+            <tr>
+                <td colspan="5" height="80">&nbsp;</td>
+            </tr>
+            <tr>
+                <td height="15">&nbsp;</td>
+                <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+            </tr>
+            <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
+                <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
+                    <h4 style="font-size:16px; vertical-align:top; ">ALEX ANANKO</h4>
+                    &nbsp;
+                    &nbsp;
+                    <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.3 }}</h4>
+
+                </td>
+                <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                <td>&nbsp;</td>
+                <td colspan="2" style="vertical-align:bottom" align="center">
+                    <p style="font-size:22px">{{ way.3 }}</p>
+                    <p style="font-size:22px">{{ way.4 }}</p>
+                </td>
+            </tr>
+            <tr>
+                <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.4 }}</h4></td>
+                <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+            </tr>
+            <tr>
+                <td height="60">&nbsp;</td>
+            </tr>
+        </table>
+    {% endif %}
+
+<p><a class="btn btn-primary" href="{% url 'finding_way' %}" role="button">Main page</a></p>
+
+{% endblock %}
+
