@@ -2,8 +2,6 @@ from django.shortcuts import render
 import random
 from graph import Graph, nodes, init_graph, dijkstra_algorithm
 
-# Create your views here.
-
 def index(request):
     return render(request, "index.html")
 
