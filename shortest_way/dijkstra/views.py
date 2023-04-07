@@ -1,6 +1,7 @@
 from django.shortcuts import render
 import random
-from graph import Graph, nodes, init_graph, dijkstra_algorithm
+from .graphs import Graph, nodes, init_graph, dijkstra_algorithm
+
 
 def index(request):
     return render(request, "index.html")
