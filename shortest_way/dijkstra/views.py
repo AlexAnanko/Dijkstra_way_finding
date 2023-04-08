@@ -1,10 +1,12 @@
 from django.shortcuts import render
 import random
 from .graphs import Graph, nodes, init_graph, dijkstra_algorithm
+from .models import News
 
 
 def index(request):
-    return render(request, "index.html")
+    news = News.objects.all()
+    return render(request, "index.html", {'news': news})
 
 def route(request):
     point_from = request.POST.get('point_from')

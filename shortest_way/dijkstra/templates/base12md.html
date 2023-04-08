@@ -24,19 +24,11 @@
         </table>
     </div>
     <h1 style="margin: 40px">Мы помогаем найти кротчайший путь из точки А в точку B с минимальными усилиями.</h1>
-    <div class="content container-fluid">
-        <div class="col-md-3" style="background-color: #FFFAF0">
-            <h4>News</h4>
-            {% for new in news %}
-                <h3>{{ new.title }}</h3>
-                <p>{{ new.text }}</p><a class="btn btn-primary" href="{{ new.link }}" role="button">Read more</a>
-            {% endfor %}
-        </div>
-        <div class="col-md-6">
+    <div class="content container">
+        <div class="col-md-12">
             {% block content %}
+
             {% endblock %}
         </div>
-        <div class="col-md-3" style="background-color: #FFF8DC">News</div>
-
     </div>
 </body>
