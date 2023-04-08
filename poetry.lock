@@ -411,6 +411,21 @@ files = [
 ]
 
 [[package]]
+name = "dijkstra"
+version = "0.2.1"
+description = "dijkstra is a native Python implementation of famous Dijkstra's shortest path algorithm. The implemented algorithm can be used to analyze reasonably large networks. The primary goal in design is the clarity of the program code. Thus, program code tends to be more educational than effective."
+category = "main"
+optional = false
+python-versions = "*"
+files = [
+    {file = "dijkstra-0.2.1-py3-none-any.whl", hash = "sha256:52c2774a739399bbf012879fb0ba620d467bdd58e05e8442e8d7a7a94cb03762"},
+    {file = "dijkstra-0.2.1.tar.gz", hash = "sha256:4773decbba0e999945313f93d1ab523fc9c4c20769b2921330a6b5c137186ccb"},
+]
+
+[package.extras]
+test = ["pytest", "pytest-cov", "pytest-flake8", "pytest-pep8", "pytest-pycodestyle"]
+
+[[package]]
 name = "django"
 version = "4.2"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
@@ -1247,4 +1262,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "39a2a99dcef6112a58bf0c7a0c8af01f101b2e98a8894a72b398494d8264593d"
+content-hash = "2fec221415015c0653b44dc8267d947427c0a2aa4e1eda28c4cddf1c3fe773e2"
