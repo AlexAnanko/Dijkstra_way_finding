@@ -9,12 +9,22 @@
     </head>
     <body>
     <div class="page-header">
-        <h1><a href="/">TicketSales.org</a></h1>
+        <table>
+            <tr>
+                <td width="500" align="left"><h1><a href="/">TicketSales.org</a></h1></td>
+                {% if user.is_authenticated %}
+                <td width="250" align="right"><h1><a href="{% url 'logout' %}">Logout</a></h1></td>
+                {% else %}
+                <td width="250" align="right"><h1><a href="{% url 'login' %}">Login</a></h1></td>
+                <td width="250" align="right"><h1><a href="{% url 'signup' %}">Sign Up</a></h1></td>
+                {% endif %}
+            </tr>
+        </table>
     </div>
     <div class="content container">
         <div class="row">
             <div class="col-md-12">
-                <h1>We help you find the shortest path from point A to point B with minimal effort.</h1>
+                <h1>Мы помогаем найти кротчайший путь из точки А в точку B с минимальными усилиями.</h1>
             {% block content %}
             {% endblock %}
             </div>

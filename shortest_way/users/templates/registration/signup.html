@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action="" method="post">
+    {% csrf_token %}
+    <h3>Signup Here</h3>
+
+    <label for="username">First and Second Name</label>
+    <input type="text" placeholder="First and Second Name" name="name" id="name">
+    <br>
+    <label for="username">Username</label>
+    <input type="text" placeholder="Username" name="username" id="username">
+    <br>
+    <label for="password1">Password</label>
+    <input type="password" placeholder="Password" id="password1" name="password1">
+    <br>
+    <label for="password2">Confrom Password</label>
+    <input type="password" placeholder="Confrom Password" id="password2" name="password2">
+    <br>
+    <button type="submit">Signup</button>
+
+    <a href="{% url 'login' %}" >I already have account</a>
+</form>
+
+{% endblock %}
