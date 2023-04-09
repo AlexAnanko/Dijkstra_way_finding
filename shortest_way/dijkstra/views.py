@@ -59,7 +59,7 @@ def route(request):
         path.append(node)
         node = previous_nodes[node]
 
-    # Добавляем начальный узел вручную
+    # Set start node
     path.append(start_node)
 
     new_path = " -> ".join(reversed(path))
