@@ -5,7 +5,7 @@
 
 <form action="route/" method="POST">
     {% csrf_token %}
-<h1><label>From: </label></h1>
+<h3><label>From: </label></h3>
     <h2><select class="form-control form-control-lg" name="point_from" id="point_from_id">
         <option value="">Please set the city</option>
         <option value="Alytus">Alytus</option>
@@ -107,7 +107,7 @@
         <option value="Zaragoza">Zaragoza</option>
         <option value="Zürich">Zürich</option>
     </select></h2>
-    <h1><label>To: </label></h1>
+    <h3><label>To: </label></h3>
     <h2><select class="form-control form-control-lg" name="point_to" id="point_to_id">
         <option value="">Please set the city</option>
         <option value="Alytus">Alytus</option>
@@ -209,6 +209,7 @@
         <option value="Zaragoza">Zaragoza</option>
         <option value="Zürich">Zürich</option>
     </select></h2>
+    <br>
     <h2><input type="Submit" class="btn btn-primary mb-2" name="submit" value="Build a route"/></h2>
 </form>
 

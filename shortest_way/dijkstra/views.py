@@ -1,5 +1,5 @@
 import requests
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponse
 import random
 from .graphs import Graph, nodes, init_graph, dijkstra_algorithm
 from .models import News
@@ -16,19 +16,21 @@ def index(request):
     weather_condition = []
 
     for city in cities:
+        try:
+            res = requests.get(
+                f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={OWM}&units=metric')
 
-        res = requests.get(
-            f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={OWM}&units=metric')
+            data = res.json()
 
-        data = res.json()
+            temp = data["main"]["temp"]
+            weather_conditions = data["weather"][0]["description"]
+            if weather_conditions in conditions_code:
+                condition = conditions_code[weather_conditions]
+                weather_condition.append(condition)
 
-        temp = data["main"]["temp"]
-        weather_conditions = data["weather"][0]["description"]
-        if weather_conditions in conditions_code:
-            condition = conditions_code[weather_conditions]
-            weather_condition.append(condition)
-
-        temperature.append(round(temp))
+            temperature.append(round(temp))
+        except Exception as e:
+            print("Something wrong with the network, try again later.")
 
     return render(request, 'index.html', {'news': news, 'temperature': temperature, 'cities': cities,
                                           'weather_condition': weather_condition})
@@ -40,6 +42,9 @@ def news_list(request):
 def route(request):
     point_from = request.POST.get('point_from')
     point_to = request.POST.get('point_to')
+
+    if not point_to or point_from == '':
+        return render(request, 'error.html')
 
     start_node = point_from
     target_node = point_to
@@ -68,10 +73,10 @@ def route(request):
     time = []
     day = []
 
-    day_item1 = random.randint(1, 32)
+    day_item1 = random.randint(1, 31)
     day.append(day_item1)
     day.append(day_item1 + 1)
-    month = random.randint(5, 13)
+    month = random.randint(5, 12)
 
     for i in range(0, 6):
         gate_item = chr(random.randint(ord('A'), ord('Y'))) + str(random.randint(1, 31))
@@ -82,13 +87,16 @@ def route(request):
         flight.append(flight_item)
 
     for i in range(0, 6):
-        seat_item = str(random.randint(1, 61)) + chr(random.randint(ord('A'), ord('F')))
+        seat_item = str(random.randint(1, 60)) + chr(random.randint(ord('A'), ord('F')))
         seat.append(seat_item)
 
     for i in range(0, 6):
-        time_item = str(random.randint(0, 2)) + str(random.randint(0, 10)) + ':' \
-               + str(random.randint(1, 6)) + str(random.randint(0, 10))
+        time_item = str(random.randint(0, 2)) + str(random.randint(0, 9)) + ':' \
+               + str(random.randint(1, 5)) + str(random.randint(0, 9))
         time.append(time_item)
+
 
     return render(request, 'route.html', {'way': way, 'route': route, 'day': day, 'month': month, 'gate': gate,
                                           'flight': flight, 'seat': seat, 'time': time})
+
+
