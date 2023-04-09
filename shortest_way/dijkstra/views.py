@@ -4,10 +4,12 @@ import random
 from .graphs import Graph, nodes, init_graph, dijkstra_algorithm
 from .models import News
 from .conditions import conditions_code
+from django.conf import settings
 
+OWM = settings.OWM
 
 def index(request):
-    news = News.objects.all()
+    news = News.objects.order_by('-id')[:5]
 
     cities = ['Berlin', 'Hong Kong', 'Paris', 'London', 'Moscow', 'Madrid', 'New York']
     temperature = []
@@ -16,7 +18,7 @@ def index(request):
     for city in cities:
 
         res = requests.get(
-            f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=6d214577c77862892539c52034e69d4e&units=metric')
+            f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid={OWM}&units=metric')
 
         data = res.json()
 
@@ -30,6 +32,10 @@ def index(request):
 
     return render(request, 'index.html', {'news': news, 'temperature': temperature, 'cities': cities,
                                           'weather_condition': weather_condition})
+
+def news_list(request):
+    news = News.objects.all()
+    return render(request, 'news_list.html', {'news': news})
 
 def route(request):
     point_from = request.POST.get('point_from')
@@ -56,12 +62,33 @@ def route(request):
 
     route = shortest_path[target_node]
 
-    day = random.randint(1, 32)
+    gate = []
+    flight = []
+    seat = []
+    time = []
+    day = []
+
+    day_item1 = random.randint(1, 32)
+    day.append(day_item1)
+    day.append(day_item1 + 1)
     month = random.randint(5, 13)
-    gate = chr(random.randint(ord('A'), ord('Y'))) + str(random.randint(1, 31))
-    flight = chr(random.randint(ord('A'), ord('Z'))) + str(random.randint(100, 1000))
-    seat = str(random.randint(1, 61)) + chr(random.randint(ord('A'), ord('F')))
-    time = str(random.randint(0, 23)) + ':' + str(random.randint(5, 56))
+
+    for i in range(0, 6):
+        gate_item = chr(random.randint(ord('A'), ord('Y'))) + str(random.randint(1, 31))
+        gate.append(gate_item)
+
+    for i in range(0, 6):
+        flight_item = chr(random.randint(ord('A'), ord('Z'))) + str(random.randint(100, 1000))
+        flight.append(flight_item)
+
+    for i in range(0, 6):
+        seat_item = str(random.randint(1, 61)) + chr(random.randint(ord('A'), ord('F')))
+        seat.append(seat_item)
+
+    for i in range(0, 6):
+        time_item = str(random.randint(0, 2)) + str(random.randint(0, 10)) + ':' \
+               + str(random.randint(1, 6)) + str(random.randint(0, 10))
+        time.append(time_item)
 
     return render(request, 'route.html', {'way': way, 'route': route, 'day': day, 'month': month, 'gate': gate,
                                           'flight': flight, 'seat': seat, 'time': time})

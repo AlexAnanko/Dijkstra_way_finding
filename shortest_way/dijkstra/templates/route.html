@@ -16,15 +16,19 @@ td {
 
     {% if user.is_authenticated %}
         {% if way|length == 2 %}
-        <h3>Ваш маршрут состоит из прямого рейса из <b>{{ way.0 }}</b> в <b>{{ way.1 }}</b></h3>
+        <h3>Ваш маршрут состоит из прямого рейса из <b>{{ way.0 }}</b> в <b>{{ way.1 }}.
+            Общая протяженность маршрута составляет {{ route }} км.</b></h3>
         {% elif way|length == 3 %}
-        <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.2 }}</b> c пересадкой в <b>{{ way.1 }}</b></h3>
+        <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.2 }}</b> c пересадкой в <b>{{ way.1 }}.
+        Общая протяженность маршрута составляет {{ route }} км.</b></h3>
         {% elif way|length == 4 %}
         <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.3 }}</b> c первой пересадкой в <b>{{ way.1 }}</b>
-            и с послежующей пересадкой в <b>{{ way.2 }}</b></h3>
+            и с послежующей пересадкой в <b>{{ way.2 }}.
+            Общая протяженность маршрута составляет {{ route }} км.</b></h3>
         {% elif way|length == 5 %}
         <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.4 }}</b> c первой пересадкой в <b>{{ way.1 }}</b>
-            и с послежующей пересадкой в <b>{{ way.2 }}</b>, затем Вас ждет еще одна пересадка в  <b>{{ way.3 }}</b></h3>
+            и с послежующей пересадкой в <b>{{ way.2 }}</b>, затем Вас ждет еще одна пересадка в  <b>{{ way.3 }}.
+            Общая протяженность маршрута составляет {{ route }} км.</b></h3>
         {% endif %}
         <br>
         {% if way|length == 2 %}
@@ -34,9 +38,9 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2 style="color: #6495ED; font-family: helvetica">{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2 style="color: #6495ED; font-family: helvetica">{{ day.0 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
-                    <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
+                    <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>{{ }}</h4></td>
                 </tr>
                 <tr style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;" align="top">
                     <td rowspan="" height="90" style="vertical-align:bottom; padding:0px; border: 0px; line-height: 1.8;">
@@ -46,7 +50,7 @@ td {
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.0 }}</h4>
 
                     </td>
-                    <td style="vertical-align:top" align="center"><h2 style="color: #6495ED; font-family: helvetica">{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2 style="color: #6495ED; font-family: helvetica">{{ time.0 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="left">
                         <p style="font-size:22px">{{ way.0 }}</p>
@@ -55,9 +59,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.1 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.0 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.0 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.0 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -70,7 +74,7 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2>{{ day.0 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
                 </tr>
@@ -82,7 +86,7 @@ td {
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.0 }}</h4>
 
                     </td>
-                    <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2>{{ time.0 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="left">
                         <p style="font-size:22px">{{ way.0 }}</p>
@@ -91,9 +95,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.1 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.0 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.0 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.0 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -105,7 +109,7 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2>{{ day.0 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
                 </tr>
@@ -117,7 +121,7 @@ td {
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.1 }}</h4>
 
                     </td>
-                    <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2>{{ time.1 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="left">
                         <p style="font-size:22px">{{ way.1 }}</p>
@@ -126,9 +130,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.2 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.1 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.1 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.1 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -141,7 +145,7 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2>{{ day.0 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
                 </tr>
@@ -153,7 +157,7 @@ td {
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.0 }}</h4>
 
                     </td>
-                    <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2>{{ time.0 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="left">
                         <p style="font-size:22px">{{ way.0 }}</p>
@@ -162,9 +166,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.1 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.0 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.0 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.0 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -176,7 +180,7 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2>{{ day.0 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
                 </tr>
@@ -188,7 +192,7 @@ td {
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.1 }}</h4>
 
                     </td>
-                    <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2>{{ time.1 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:115px;" align="center">
                         <p style="font-size:22px">{{ way.1 }}</p>
@@ -197,9 +201,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.2 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:85px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.1 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.1 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.1 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -211,7 +215,7 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2>{{ day.1 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
                 </tr>
@@ -222,7 +226,7 @@ td {
                         &nbsp;
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.2 }}</h4>
                     </td>
-                    <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2>{{ time.2 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom" align="center">
                         <p style="font-size:22px">{{ way.2 }}</p>
@@ -231,9 +235,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.3 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.2 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.2 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.2 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -246,7 +250,7 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2>{{ day.0 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
                 </tr>
@@ -258,7 +262,7 @@ td {
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.0 }}</h4>
 
                     </td>
-                    <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2>{{ time.0 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom" align="center">
                         <p style="font-size:22px">{{ way.0 }}</p>
@@ -267,9 +271,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.1 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.0 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.0 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.0 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -281,7 +285,7 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2>{{ day.0 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
                 </tr>
@@ -293,7 +297,7 @@ td {
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.1 }}</h4>
 
                     </td>
-                    <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2>{{ time.1 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom" align="center">
                         <p style="font-size:22px">{{ way.1 }}</p>
@@ -302,9 +306,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.2 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.1 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.1 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.1 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -316,7 +320,7 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2>{{ day.1 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
                 </tr>
@@ -328,7 +332,7 @@ td {
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.2 }}</h4>
 
                     </td>
-                    <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2>{{ time.2 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom" align="center">
                         <p style="font-size:22px">{{ way.2 }}</p>
@@ -337,9 +341,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.3 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.2 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.2 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.2 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -351,7 +355,7 @@ td {
                 </tr>
                 <tr>
                     <td height="15">&nbsp;</td>
-                    <td colspan="2" align="center"><h2>{{ day }} . {{ month }} . 23</h2></td>
+                    <td colspan="2" align="center"><h2>{{ day.1 }} . {{ month }} . 23</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom; text-indent:80px;" align="left"><h4>ALEX ANANKO</h4></td>
                 </tr>
@@ -363,7 +367,7 @@ td {
                         <h4 style="text-transform: uppercase; vertical-align:top;">{{ way.3 }}</h4>
 
                     </td>
-                    <td style="vertical-align:top" align="center"><h2>{{ time }}</h2></td>
+                    <td style="vertical-align:top" align="center"><h2>{{ time.3 }}</h2></td>
                     <td>&nbsp;</td>
                     <td colspan="2" style="vertical-align:bottom" align="center">
                         <p style="font-size:22px">{{ way.3 }}</p>
@@ -372,9 +376,9 @@ td {
                 </tr>
                 <tr>
                     <td height="80" style="vertical-align:bottom"><h4 style="text-transform: uppercase">{{ way.4 }}</h4></td>
-                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight }}
-                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat }}</h4></td>
+                    <td style="vertical-align:bottom; text-indent:80px;" align="left"><h4 style="color:#F8F8FF; " align="left">{{ flight.3 }}
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp{{ gate.3 }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp{{ seat.3 }}</h4></td>
                 </tr>
                 <tr>
                     <td height="60">&nbsp;</td>
@@ -383,23 +387,29 @@ td {
         {% endif %}
     {% else %}
         {% if way|length == 2 %}
-        <h3>Ваш маршрут состоит из прямого рейса из <b>{{ way.0 }}</b> в <b>{{ way.1 }}</b></h3>
-        Для того, чтобы просмотреть наличие билетов, авторизуйтесь или зарегичстрируйтесь.
+        <h3>Ваш маршрут состоит из прямого рейса из <b>{{ way.0 }}</b> в <b>{{ way.1 }}.
+            Общая протяженность маршрута составляет {{ route }} км.</b></h3>
         {% elif way|length == 3 %}
-        <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.2 }}</b> c пересадкой в <b>{{ way.1 }}</b></h3>
-        Для того, чтобы просмотреть наличие билетов, авторизуйтесь или зарегичстрируйтесь.
+        <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.2 }}</b> c пересадкой в <b>{{ way.1 }}.
+        Общая протяженность маршрута составляет {{ route }} км.</b></h3>
         {% elif way|length == 4 %}
         <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.3 }}</b> c первой пересадкой в <b>{{ way.1 }}</b>
-            и с послежующей пересадкой в <b>{{ way.2 }}</b></h3>
-            Для того, чтобы просмотреть наличие билетов, авторизуйтесь или зарегичстрируйтесь.
+            и с послежующей пересадкой в <b>{{ way.2 }}.
+            Общая протяженность маршрута составляет {{ route }} км.</b></h3>
         {% elif way|length == 5 %}
         <h3>Ваш маршрут состоит из рейса <b>{{ way.0 }}</b> в <b>{{ way.4 }}</b> c первой пересадкой в <b>{{ way.1 }}</b>
-            и с послежующей пересадкой в <b>{{ way.2 }}</b>, затем Вас ждет еще одна пересадка в  <b>{{ way.3 }}</b></h3>
-            Для того, чтобы просмотреть наличие билетов, авторизуйтесь или зарегичстрируйтесь.
+            и с послежующей пересадкой в <b>{{ way.2 }}</b>, затем Вас ждет еще одна пересадка в  <b>{{ way.3 }}.
+            Общая протяженность маршрута составляет {{ route }} км.</b></h3>
         {% endif %}
+        <br>
     {% endif %}
+<br>
+<div class="row">
 
+</div>
 <p><a class="btn btn-primary" href="{% url 'index' %}" role="button">Main page</a></p>
+
+
 
 {% endblock %}
 

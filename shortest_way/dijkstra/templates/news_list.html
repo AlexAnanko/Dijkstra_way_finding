@@ -1,0 +1,11 @@
+{% extends 'base12md.html' %}
+{% load static %}
+
+{% block content %}
+    <h3>News</h3>
+    {% for new in news %}
+            <h3>{{ new.title }}</h3>
+            <p>{{ new.text }}</p><a class="btn btn-primary" href="{{ new.link }}" role="button">Read more</a>
+            <hr>
+    {% endfor %}
+{% endblock %}

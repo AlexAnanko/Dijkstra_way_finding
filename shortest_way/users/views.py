@@ -10,17 +10,15 @@ def index_page(request):
 
 def signup_page(request):
     if request.method == 'POST':
+        name = request.POST.get('firstname')
         uname = request.POST.get('username')
-        first_name = request.POST.get('firstname')
-        second_name = request.POST.get('secondname')
-        email = request.POST.get('email')
         pass1 = request.POST.get('password1')
         pass2 = request.POST.get('password2')
 
         if pass1 != pass2:
             return Http404('403\n\nPasswords does not match ')
         else:
-            my_user = User.objects.create_user(uname, email, pass1)
+            my_user = User.objects.create_user(uname, name, pass1)
             my_user.save()
             return redirect('login')
 

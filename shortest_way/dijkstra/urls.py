@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('route/', views.route, name='route'),
+    path('news/', views.news_list, name='news_list'),
 ]
