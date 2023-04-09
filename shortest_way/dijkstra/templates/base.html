@@ -26,17 +26,43 @@
     <h1 style="margin: 40px">Мы помогаем найти кротчайший путь из точки А в точку B с минимальными усилиями.</h1>
     <div class="content container-fluid">
         <div class="col-md-3" style="background-color: #FFFAF0">
-            <h4>News</h4>
+            <h3 align="center">News</h3>
+            <br>
             {% for new in news %}
                 <h3>{{ new.title }}</h3>
                 <p>{{ new.text }}</p><a class="btn btn-primary" href="{{ new.link }}" role="button">Read more</a>
+                <hr>
             {% endfor %}
         </div>
         <div class="col-md-6">
             {% block content %}
             {% endblock %}
         </div>
-        <div class="col-md-3" style="background-color: #FFF8DC">News</div>
+        <div class="col-md-3" style="background-color: #FFFAF0">
+            <h3 align="center">Weather</h3>
+            <br>
+            <div class="col-md-6" style="background-color: #FFFAF0">
+                {% for city in cities %}
+                    <h4>{{ city }}</h4>
+                    <hr>
+                {% endfor %}
+            </div>
+            <div class="col-md-6" style="background-color: #FFFAF0">
+                <div class="col-md-6" style="background-color: #FFFAF0">
+                    {% for temp in temperature %}
+                        <h4>{{ temp }}</h4>
+                        <hr>
+                    {% endfor %}
+                </div>
+                <div class="col-md-6" style="background-color: #FFFAF0">
+                    {% for w in weather_condition %}
+                        <h4>{{ w }}</h4>
+                        <hr>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
 
     </div>
 </body>
