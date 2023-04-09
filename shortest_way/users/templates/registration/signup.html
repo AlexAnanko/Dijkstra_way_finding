@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base12md.html' %}
 
 {% block content %}
 
@@ -6,11 +6,11 @@
     {% csrf_token %}
     <h3>Signup Here</h3>
 
-    <label for="username">First and Second Name</label>
-    <input type="text" placeholder="First and Second Name" name="name" id="name">
-    <br>
     <label for="username">Username</label>
     <input type="text" placeholder="Username" name="username" id="username">
+    <br>
+    <label for="username">Email</label>
+    <input type="text" placeholder="Email" name="email" id="email">
     <br>
     <label for="password1">Password</label>
     <input type="password" placeholder="Password" id="password1" name="password1">
