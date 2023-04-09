@@ -29,6 +29,11 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+API_TOKEN = '5946006198:AAGjKxcX4XB1nNK9jG5muRYSQLVBT1DPMks'
+
+OWM = '6d214577c77862892539c52034e69d4e'
+
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -86,7 +91,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
