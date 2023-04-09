@@ -1,12 +1,35 @@
+import requests
 from django.shortcuts import render
 import random
 from .graphs import Graph, nodes, init_graph, dijkstra_algorithm
 from .models import News
+from .conditions import conditions_code
 
 
 def index(request):
     news = News.objects.all()
-    return render(request, "index.html", {'news': news})
+
+    cities = ['Berlin', 'Hong Kong', 'Paris', 'London', 'Moscow', 'Madrid', 'New York']
+    temperature = []
+    weather_condition = []
+
+    for city in cities:
+
+        res = requests.get(
+            f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=6d214577c77862892539c52034e69d4e&units=metric')
+
+        data = res.json()
+
+        temp = data["main"]["temp"]
+        weather_conditions = data["weather"][0]["description"]
+        if weather_conditions in conditions_code:
+            condition = conditions_code[weather_conditions]
+            weather_condition.append(condition)
+
+        temperature.append(round(temp))
+
+    return render(request, 'index.html', {'news': news, 'temperature': temperature, 'cities': cities,
+                                          'weather_condition': weather_condition})
 
 def route(request):
     point_from = request.POST.get('point_from')
