@@ -2,7 +2,7 @@
 
 1. First of all you can clone git:
 
-	$ git clone https://github.com/AlexAnanko/Dijkstra_way_finding.git\
+	$ git clone https://github.com/AlexAnanko/Dijkstra_way_finding.git \
     $ cd shortest_way
 
 2. Secondly create virtual environment:
