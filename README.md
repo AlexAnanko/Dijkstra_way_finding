@@ -36,6 +36,13 @@
 	
     `$ python3 manage.py runserver`
 
+# Tests
+
+To run tests:
+	
+    `$ python3 manage.py test`
+
+
 # Start telegram bot
 
 1. Search for `@botfather` in Telegram.
