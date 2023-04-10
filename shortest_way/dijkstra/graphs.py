@@ -1,6 +1,9 @@
 import sys
 
 class Graph(object):
+    """
+    Initialise Graph
+    """
     def __init__(self, nodes, init_graph):
         self.nodes = nodes
         self.graph = self.construct_graph(nodes, init_graph)

@@ -6,6 +6,12 @@ import json
 from dijkstra.models import News
 
 def news():
+    """
+    This function get the request to the link and take from that titles, text and links of article on the site.
+    Then it creates news.json file which is recorded into model News.
+
+    :return: news.json file
+    """
 
     articles_found = []
     art_text = []
@@ -13,9 +19,12 @@ def news():
     common_list_of_news = []
     row = []
 
+    # Get the request from www.nytimes.com/international
     res = requests.get('https://www.nytimes.com/international/')
+    # Take html code of the page
     soup = BeautifulSoup(res.text, "html.parser")
 
+    # Search tegs with articles, their text and link to the all text of article
     articles = soup.find_all('h3', class_="indicate-hover")
     articles_text = soup.find_all('p', class_="summary-class")
     links = soup.find_all('a', class_="css-9mylee")
@@ -41,25 +50,30 @@ def news():
         new = new.split('=>')
         common_list_of_news.append(new)
 
-
+    # Create a dict of title, text and link of every article
     for i in common_list_of_news:
         dict_news = {"title": i[0], "text": i[1],"link": i[2]}
         row.append(dict_news)
 
-
-    with open("news.json", 'w') as w_file:
+    # Create a json file news.json with title,text and links
+    with open("dijkstra/news.json", 'w') as w_file:
         json.dump(row, w_file)
 
 class Command(BaseCommand):
+    """
+    This function read json file news.json and then write it's data into News model.
+
+    """
     def handle(self, *args, **options):
 
-        with open('news.json', 'rb') as f:
+        # Open the news.json file to read
+        with open('dijkstra/news.json', 'rb') as f:
             data = json.load(f)
 
+            # Write data into News model
             for i in data:
                 news = News()
                 news.title = i["title"]
                 news.text = i["text"]
                 news.link = i["link"]
                 news.save()
-        # print('finished')

@@ -5,16 +5,30 @@ from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
 def index_page(request):
+    """
+    Render main page
+    :param request: request
+    :return: render template 'index.html'
+    """
     return render(request, 'index.html')
 
 
 def signup_page(request):
+    """
+    This function create and register users
+
+    :param request: POST data from form
+    :return: register user
+
+    """
+
     if request.method == 'POST':
         uname = request.POST.get('username')
         email = request.POST.get('email')
         pass1 = request.POST.get('password1')
         pass2 = request.POST.get('password2')
 
+        # Chaeck password matching
         if pass1 != pass2:
             return Http404('403\n\nPasswords does not match ')
         else:
@@ -26,6 +40,13 @@ def signup_page(request):
 
 
 def login_page(request):
+    """
+    This function Login users on the site
+    :param request: POST data from form
+    :return: user
+
+    """
+    # Login user on the site
     if request.method == 'POST':
         username = request.POST.get('username')
         pass1 = request.POST.get('pass')
@@ -40,5 +61,11 @@ def login_page(request):
 
 
 def logout_page(request):
+    """
+    Logout user from site
+    :param request: request
+    :return: main page redirect
+    """
+    # LogOut user
     logout(request)
     return redirect('index')
