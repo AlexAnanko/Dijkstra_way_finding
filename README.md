@@ -62,13 +62,13 @@ To run tests:
 6. Take your OpenWaeather token
 	
     `1.` Go to https://openweathermap.org \
-    `2.` Create an account \ 
+    `2.` Create an account \
     `3.` Sign in \
     `4.` Go to My API Keys Tab \
     `5.` Take your API Key \
     `6.` Past your API Key
    
-   `$ config.py` \
+   `$ config.py` 
    
    Field `OWM`
 
